@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+// App component를 class형으로!
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      count: 3,
+
+    };
+  }
+
+  componentDidMount(){
+
+  }
+  
+  render(){
+    const nemo_count = Array.from({length: this.state.count}, (v, i) => i);
+    // length가 this.state.count만큼인 배열을 만들어주고 이 배열에 index값을 하나하나 넣어줄거야
+
+    console.log(nemo_count)
+
+    return (
+      <div className="App">
+        {nemo_count.map((n, i)=>{
+          return (
+            <div
+            key={i} // key값 임의지정
+              style={{
+              width: "150px",
+              height: "150px",
+              backgroundColor: "#ddd",
+              margin: "10px"
+            }}>
+              nemo
+            </div>
+          )
+        })}
+      </div>
+    );
+  }
 }
 
 export default App;
