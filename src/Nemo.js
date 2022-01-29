@@ -7,10 +7,13 @@ const Nemo = (props) => {
 
     console.log(count);
     const nemo_count = Array.from({length: count}, (v, i) => i);
+    // count길이의 배열에 index를 순서대로 넣는다
+    // [0,1,2,3, ...]
 
     const addNemo = ()=>{
         setCount(count + 1);
     }
+    // setCount가 state를 변경시키면서 리랜더링
 
     const removeNemo = ()=>{
         if(count>0) {
